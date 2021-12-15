@@ -2,9 +2,8 @@ body {
     background-image: url('images/bg2.jpg');
     /* font-family: 'Tangerine', cursive; */
     background-size: cover;
-    height: 100vh;
     background-repeat: no-repeat;
-    /* background-position: center center; */
+    background-position: center;
     background-attachment: fixed;
 }
 
@@ -27,6 +26,15 @@ body {
     transform:rotate(180deg);
 }
 
+#card-info{
+    font-family: 'Tangerine', cursive;
+    /* font-family: 'Cookie', cursive; */
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 10px;
+    background-color: rgba(163, 71, 71, 0.404);
+    font-weight: bold;
+}
 .card-details-sections{
     /* font-family: 'Tangerine', cursive; */
     background-color: rgba(255, 248, 220, 0.616);

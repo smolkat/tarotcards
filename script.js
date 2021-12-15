@@ -5,28 +5,32 @@ var transparent_extension = ".png"
 var deck = []
 var inverted = []
 var total_cards = associations.length
+var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed</em>", "<em>The current state you are in</em>", "<em>The future holds great opportunities, and dangers</em>"]
 // spread variables
 var three_spread_count = 1
 function threeSpread() {
-    if(deck.length){
-        if (three_spread_count <= 3){
+    if (deck.length) {
+        if (three_spread_count <= 3) {
+            if (three_spread_count == 3)
+                document.getElementById("draw-card").innerHTML = "New Spread"
             drawForElement(three_spread_count++)
             updateDeckCount()
         }
         else {
             three_spread_count = 1
+            document.getElementById("draw-card").innerHTML = "Draw a Card"
             resetThreeCardSpread()
         }
     }
-    else{
+    else {
         updateDeckCount("Out of cards!<br/>Reshuffle?")
     }
-    
+
 }
 
 function updateDeckCount(optional) {
     deck_count = document.getElementById("deck-count")
-    if(optional != null){
+    if (optional != null) {
         deck_count.innerHTML = optional
         return
     }
@@ -47,10 +51,10 @@ function resetThreeCardSpread() {
 
     for (let index = 0; index < details_collection.length; index++) {
         for (let j = 0; j < details_collection[index].childElementCount; j++) {
-            details_collection[index].children[j].innerHTML = ""      
-        }     
-        updateNameOfElement("card-"+ (index+1), null, "Chose a Card")   
-        updateDescriptionOfElement("card-"+ (index+1), null, "Description and details will be shown here")   
+            details_collection[index].children[j].innerHTML = ""
+            updateNameOfElement("card-" + (index + 1), null, default_values[index])
+            updateDescriptionOfElement("card-" + (index + 1), null, default_values[index+3])
+        }
     }
 }
 
@@ -58,14 +62,14 @@ function drawForElement(id) {
     card_id = "card-" + id
     cardelement = document.getElementById(card_id)
     card = deck.splice(0, 1)
-    console.log("Drew a card("+ card+ (inverted[card]?"inv":"") +"): ", deck)
+    console.log("Drew a card(" + card + (inverted[card] ? "inv" : "") + "): ", deck)
     cardelement.src = root + "/" + associations[card].image_name + extension
 
     if (inverted[card]) {
         cardelement.classList.add("card-rotated")
         updateInvertedKeywordsOfElement(card_id, card)
     }
-    else{
+    else {
         cardelement.classList.remove("card-rotated")
         updateKeywordsOfElement(card_id, card)
     }
@@ -73,13 +77,13 @@ function drawForElement(id) {
     updateCommonDetails(card_id, card)
 }
 
-function updateCommonDetails(card_id, card){
-    updateDescriptionOfElement(card_id, card)    
+function updateCommonDetails(card_id, card) {
+    updateDescriptionOfElement(card_id, card)
     updateNameOfElement(card_id, card)
     updateShortDesc(card_id, card)
 }
 
-function updateShortDesc(id, card){
+function updateShortDesc(id, card) {
     shortd = document.getElementById(id + "-short-desc")
     shortd.innerHTML = "<q>" + associations[card].short_description + "</q>"
 }
@@ -99,21 +103,21 @@ function updateInvertedKeywordsOfElement(id, card) {
 function updateDescriptionOfElement(id, card, optional_desc) {
     //console.log(id + "-description")
     description = document.getElementById(id + "-description")
-    if(optional_desc != null){
+    if (optional_desc != null) {
         description.innerHTML = optional_desc
         return
     }
     description.innerHTML = "<h3>Description</h3>" + associations[card].long_description
 }
 
-function updateNameOfElement(id, card, optional_name){
+function updateNameOfElement(id, card, optional_name) {
     //console.log(id)
     card_name = document.getElementById(id + "-name")
-    if(optional_name != null){
+    if (optional_name != null) {
         card_name.innerHTML = "<h2>" + optional_name + "</h2>"
         return
     }
-    card_name.innerHTML = "<h2>"+ associations[card].name + (inverted[card]?"(Inv)":"") +"</h2>"
+    card_name.innerHTML = "<h2>" + associations[card].name + (inverted[card] ? "(Inv)" : "") + "</h2>"
 }
 
 function randomcard() {

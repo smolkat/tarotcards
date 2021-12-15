@@ -26,8 +26,8 @@
 </head>
 
 <body>
-    <h1 id="three-card-spread">Three card spread</h1>
-    
+    <h1 id="three-card-spread">Past, Present, Future - Three card spread</h1>
+
     <div class="container">
         <div class="row">
             <div class="col-md-2 card-info">
@@ -49,9 +49,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="button-console">
-                    <button class="btn btn-success" type="button" onclick="threeSpread()">Draw a Card</button>
+                    <button id="draw-card" class="btn btn-success" type="button" onclick="threeSpread('Past','Present','Future')">Draw a Card</button>
                     <!-- <input type="image" src="images/button.png" onclick="threeSpread()" width="50px" height="50px"/> -->
-                    <div id="dev-console"
+                    <div hidden id="dev-console"
                         style="margin-top: 10px; border: 1px solid brown ; border-radius: 10px; padding: 5px;">
                         <button class="btn btn-primary" type="button" onclick="shuffle_deck()">Shuffle Deck</button>
                         <button class="btn btn-info" type="button" onclick="create_deck()">Create Deck</button>
@@ -87,8 +87,9 @@
     </div>
 
     <footer class="page-footer font-small blue pt-4">
-     <div class="footer-copyright text-center py-3">© 2021 Copyright:
-        <a href="https://github.com/smolkat/"> smolkat</a>
+        <a href="card-details.html">Learn about the cards</a>
+        <div class="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="https://github.com/smolkat/"> smolkat</a>
         </div>
     </footer>
 </body>
