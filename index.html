@@ -29,19 +29,35 @@
     <h1 id="three-card-spread">Past, Present, Future - Three card spread</h1>
 
     <div class="container">
+        <div class="row" id="intro">
+            <div class="col-md-12">
+                <div style="padding: 15px;">
+                    The "Past, Present and Future Spread", is a very simple spread that you through the phases of life
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-md-2 card-info">
+            <div class="col-md-3 card-info">
                 <h3>Total Cards</h3>
                 <h4 id="cards-total">Total Cards</h4>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div style="text-align: center;">
-                    <img class='card test' id="card-1" src="Cards/back.png" height="295.58px" width="175px">
-                    <img class='card' id="card-2" src="Cards/back.png" height="295.58px" width="175px">
-                    <img class='card' id="card-3" src="Cards/back.png" height="295.58px" width="175px">
+                    <div class="row">
+                        <!-- height="295.58px" width="175px" -->
+                        <div class="col-sm-4">
+                            <img class='card test' id="card-1" src="Cards/back.png">
+                        </div>
+                        <div class="col-sm-4">
+                            <img class='card' id="card-2" src="Cards/back.png" >
+                        </div>
+                        <div class="col-sm-4">
+                            <img class='card' id="card-3" src="Cards/back.png" >
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-2 card-info">
+            <div class="col-md-3 card-info">
                 <h3>Cards in Deck</h3>
                 <h4 id="deck-count"></h4>
             </div>
@@ -49,7 +65,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="button-console">
-                    <button id="draw-card" class="btn btn-success" type="button" onclick="threeSpread('Past','Present','Future')">Draw a Card</button>
+                    <button id="draw-card" class="btn btn-success" type="button"
+                        onclick="threeSpread('Past','Present','Future')">Draw a Card</button>
                     <!-- <input type="image" src="images/button.png" onclick="threeSpread()" width="50px" height="50px"/> -->
                     <div hidden id="dev-console"
                         style="margin-top: 10px; border: 1px solid brown ; border-radius: 10px; padding: 5px;">
@@ -87,7 +104,9 @@
     </div>
 
     <footer class="page-footer font-small blue pt-4">
-        <a href="card-details.html">Learn about the cards</a>
+        <div class="text-center">
+            <a href="card-details.html">Learn about the cards</a>
+        </div>
         <div class="footer-copyright text-center py-3">© 2021 Copyright:
             <a href="https://github.com/smolkat/"> smolkat</a>
         </div>

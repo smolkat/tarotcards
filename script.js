@@ -6,6 +6,7 @@ var deck = []
 var inverted = []
 var total_cards = associations.length
 var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed</em>", "<em>The current state you are in</em>", "<em>The future holds great opportunities, and dangers</em>"]
+var screen_to_card_ratio = 5
 // spread variables
 var three_spread_count = 1
 function threeSpread() {
@@ -114,10 +115,10 @@ function updateNameOfElement(id, card, optional_name) {
     //console.log(id)
     card_name = document.getElementById(id + "-name")
     if (optional_name != null) {
-        card_name.innerHTML = "<h2>" + optional_name + "</h2>"
+        card_name.innerHTML = "<h1>" + optional_name + "</h1>"
         return
     }
-    card_name.innerHTML = "<h2>" + associations[card].name + (inverted[card] ? "(Inv)" : "") + "</h2>"
+    card_name.innerHTML = "<h1>" + associations[card].name + (inverted[card] ? "(Inv)" : "") + "</h1>"
 }
 
 function randomcard() {
@@ -176,5 +177,15 @@ function invertCard(position) {
         inverted[position] = 1
 }
 
+function set_card_height(){
+    card1 = document.getElementById("card-1")
+    card2 = document.getElementById("card-2")
+    card3 = document.getElementById("card-3")
+    card1.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, 175) )
+    card2.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, 175) )
+    card3.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, 175) )
+}
+
 create_deck()
 shuffle_deck()
+set_card_height()

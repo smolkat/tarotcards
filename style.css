@@ -7,12 +7,39 @@ body {
     background-attachment: fixed;
 }
 
+#intro{
+    text-align: center;
+    color: rgb(65, 17, 17);
+    font-size: medium;
+    background-color: rgba(219, 174, 115, 0.664);
+    margin-bottom: 35px;
+    margin-top: 50px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+#three-card-spread {
+    font-family: 'Tangerine', cursive;
+    /* font-family: 'Cookie', cursive; */
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 10px;
+    background-color: rgb(68, 54, 35);
+    color: rgb(245, 217, 181);;
+    font-weight: bold;
+    border-radius: 0px 0px 40px 40px;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
 .card {
     border: 3px solid #1b6c918a;
     border-radius: 4px;
     padding: 2px;
-    margin-right: 15px;
-    margin-left: 15px;
+    /* margin-right: 15px; */
+    /* margin-left: 15px; */
     box-shadow: 0px 0px 20px #5d9fbe
 }
 
@@ -57,16 +84,6 @@ body {
 .card-details-short-desc{
     color: saddlebrown;
     background-color: rgba(243, 215, 178, 0.664);
-}
-
-#three-card-spread {
-    font-family: 'Tangerine', cursive;
-    /* font-family: 'Cookie', cursive; */
-    text-align: center;
-    margin-bottom: 35px;
-    padding: 10px;
-    background-color: rgba(163, 71, 71, 0.404);
-    font-weight: bold;
 }
 
 #button-console {
