@@ -1,0 +1,82 @@
+body {
+    background-image: url('images/bg2.jpg');
+    /* font-family: 'Tangerine', cursive; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center center; */
+    background-attachment: fixed;
+}
+
+.card {
+    border: 3px solid #1b6c918a;
+    border-radius: 4px;
+    padding: 2px;
+    margin-right: 15px;
+    margin-left: 15px;
+    box-shadow: 0px 0px 20px #5d9fbe
+}
+
+.card:hover{
+    transform: translateY(-3px);
+    transform: rotate(0deg);
+    transition: 0.3s ease-in;
+}
+
+.card-rotated{
+    transform:rotate(180deg);
+}
+
+.card-details-sections{
+    /* font-family: 'Tangerine', cursive; */
+    background-color: rgba(255, 248, 220, 0.616);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: medium;
+}
+.card-details-name{
+    font-family: 'Tangerine', cursive;
+    background-color: rgba(252, 199, 130, 0.664);
+    color: rgb(100, 44, 4);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.card-details-description{
+    /* text-align: justify; */
+}
+
+.card-details-short-desc{
+    color: saddlebrown;
+    background-color: rgba(243, 215, 178, 0.664);
+}
+
+#three-card-spread {
+    font-family: 'Tangerine', cursive;
+    /* font-family: 'Cookie', cursive; */
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 10px;
+    background-color: rgba(163, 71, 71, 0.404);
+    font-weight: bold;
+}
+
+#button-console {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+span{
+    font-size: medium;
+}
+
+.card-details{
+    margin-top: 10px;
+    /* align-items: center; */
+    text-align: center;
+}
+
+.card-info{
+    text-align: center;
+    font-weight: bold;
+}
