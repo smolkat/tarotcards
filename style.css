@@ -2,6 +2,7 @@ body {
     background-image: url('images/bg2.jpg');
     /* font-family: 'Tangerine', cursive; */
     background-size: cover;
+    height: 100vh;
     background-repeat: no-repeat;
     /* background-position: center center; */
     background-attachment: fixed;

@@ -47,8 +47,10 @@ function resetThreeCardSpread() {
 
     for (let index = 0; index < details_collection.length; index++) {
         for (let j = 0; j < details_collection[index].childElementCount; j++) {
-            details_collection[index].children[j].innerHTML = ""            
-        }        
+            details_collection[index].children[j].innerHTML = ""      
+        }     
+        updateNameOfElement("card-"+ (index+1), null, "Chose a Card")   
+        updateDescriptionOfElement("card-"+ (index+1), null, "Description and details will be shown here")   
     }
 }
 
@@ -94,15 +96,23 @@ function updateInvertedKeywordsOfElement(id, card) {
     keywordsi.innerHTML = "<h3>Inverted Keywords</h3>" + associations[card].reversed_keywords
 }
 
-function updateDescriptionOfElement(id, card) {
+function updateDescriptionOfElement(id, card, optional_desc) {
     //console.log(id + "-description")
     description = document.getElementById(id + "-description")
+    if(optional_desc != null){
+        description.innerHTML = optional_desc
+        return
+    }
     description.innerHTML = "<h3>Description</h3>" + associations[card].long_description
 }
 
-function updateNameOfElement(id, card){
+function updateNameOfElement(id, card, optional_name){
     //console.log(id)
     card_name = document.getElementById(id + "-name")
+    if(optional_name != null){
+        card_name.innerHTML = "<h2>" + optional_name + "</h2>"
+        return
+    }
     card_name.innerHTML = "<h2>"+ associations[card].name + (inverted[card]?"(Inv)":"") +"</h2>"
 }
 
