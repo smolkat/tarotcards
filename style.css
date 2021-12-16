@@ -11,9 +11,9 @@ body {
     text-align: center;
     color: rgb(65, 17, 17);
     font-size: medium;
-    background-color: rgba(219, 174, 115, 0.664);
+    background-color: rgba(219, 174, 115, 0.438);
     margin-bottom: 35px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     border-radius: 0px 0px 20px 20px;
 }
 
@@ -23,15 +23,15 @@ body {
     text-align: center;
     margin-bottom: 0px;
     padding: 10px;
-    background-color: rgb(68, 54, 35);
-    color: rgb(245, 217, 181);;
+    background-color: rgba(202, 161, 104, 0.459);
+    color: rgb(32, 29, 24);;
     font-weight: bold;
     border-radius: 0px 0px 40px 40px;
     margin-top: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+    /* position: fixed; */
+    /* top: 0; */
+    /* width: 100%; */
+    /* z-index: 1; */
 }
 
 .card {
