@@ -8,6 +8,7 @@ var total_cards = associations.length
 var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed</em>", "<em>The current state you are in</em>", "<em>The future holds great opportunities, and dangers</em>"]
 var intro_message = "The \"Past, Present and Future Spread\", is a very simple and effective spread that guides you through the phases of life"
 var screen_to_card_ratio = 5
+var min_card_width = 175
 // spread variables
 var three_spread_count = 1
 function threeSpread() {
@@ -162,8 +163,8 @@ function random_order() {
         cards[index] = index
         inverted[index] = Math.floor(Math.random() * 2)
     }
-    console.log("Generated set in order", cards)
-    // to be used to keep track of the main deck
+    // console.log("Generated set in order", cards)
+    // used to keep track of the main deck
     index = 0
     while (cards.length > 0) {
         // pick a random card from the generated set
@@ -186,9 +187,9 @@ function set_card_height(){
     card1 = document.getElementById("card-1")
     card2 = document.getElementById("card-2")
     card3 = document.getElementById("card-3")
-    card1.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, 175) )
-    card2.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, 175) )
-    card3.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, 175) )
+    card1.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, min_card_width) )
+    card2.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, min_card_width) )
+    card3.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, min_card_width) )
 }
 
 create_deck()
