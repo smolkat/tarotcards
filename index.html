@@ -5,23 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarot Cards - Three Card Spread</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Tangerine:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Patrick+Hand&family=Satisfy&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <!-- font-family: 'Cookie', cursive;
-    font-family: 'Tangerine', cursive; -->
+font-family: 'Patrick Hand', cursive;
+font-family: 'Satisfy', cursive;
+font-family: 'Tangerine', cursive; -->
     <script type="text/javascript" src="data.js"></script>
     <script type="text/javascript" src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
@@ -40,8 +37,8 @@
         </div>
         <div class="row">
             <div class="col-md-3 card-info">
-                <h3>Total Cards</h3>
-                <h4 id="cards-total">Total Cards</h4>
+                <h3 class="card-stats">Total Cards</h3>
+                <h4 class="card-stats" id="cards-total">Total Cards</h4>
             </div>
             <div class="col-md-6">
                 <div style="text-align: center;">
@@ -60,18 +57,17 @@
                 </div>
             </div>
             <div class="col-md-3 card-info">
-                <h3>Cards in Deck</h3>
-                <h4 id="deck-count"></h4>
+                <h3 class="card-stats">Cards in Deck</h3>
+                <h4 class="card-stats" id="deck-count"></h4>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div id="button-console">
-                    <button id="draw-card" class="btn btn-success" type="button"
-                        onclick="threeSpread()">Draw a Card</button>
+                    <button id="draw-card" class="btn btn-success" type="button" onclick="threeSpread()">Draw a
+                        Card</button>
                     <!-- <input type="image" src="images/button.png" onclick="threeSpread()" width="50px" height="50px"/> -->
-                    <div hidden id="dev-console"
-                        style="margin-top: 10px; border: 1px solid brown ; border-radius: 10px; padding: 5px;">
+                    <div hidden id="dev-console" style="margin-top: 10px; border: 1px solid brown ; border-radius: 10px; padding: 5px;">
                         <button class="btn btn-primary" type="button" onclick="shuffle_deck()">Shuffle Deck</button>
                         <button class="btn btn-info" type="button" onclick="create_deck()">Create Deck</button>
                         <button class="btn btn-info" type="button" onclick="speakContent()">Test TTS</button>
@@ -83,8 +79,7 @@
         <div class="row" style="background-color: rgba(255, 248, 220, 0.377);">
 
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
-                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;"
-                    onclick="speakContent(document.getElementById('card-1-description').innerText, 11)"></i>
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById('card-1-description').innerText, 11)"></i>
                 <div class="card-details-sections card-details-name" id="card-1-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-1-short-desc"></div>
                 <div class="card-details-sections card-details-description" id="card-1-description"></div>
@@ -92,8 +87,7 @@
                 <div class="card-details-sections" id="card-1-keywords-inverted"></div>
             </div>
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
-                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;"
-                    onclick="speakContent(document.getElementById('card-2-description').innerText, 11)"></i>
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById('card-2-description').innerText, 11)"></i>
                 <div class="card-details-sections card-details-name" id="card-2-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-2-short-desc"></div>
                 <div class="card-details-sections" id="card-2-description"></div>
@@ -101,8 +95,7 @@
                 <div class="card-details-sections" id="card-2-keywords-inverted"></div>
             </div>
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
-                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;"
-                    onclick="speakContent(document.getElementById('card-3-description').innerText, 11)"></i>
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById('card-3-description').innerText, 11)"></i>
                 <div class="card-details-sections card-details-name" id="card-3-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-3-short-desc"></div>
                 <div class="card-details-sections" id="card-3-description"></div>

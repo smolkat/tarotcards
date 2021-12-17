@@ -6,28 +6,42 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
-.speaker-icon:hover{
+
+.speaker-icon:hover {
     color: cornflowerblue;
 }
 
-.speaker-disabled{
+.speaker-disabled {
     visibility: hidden;
 }
 
 @media only screen and (max-width: 600px) {
-    .speaker-icon{
+    .speaker-icon {
         font-size: 5rem;
     }
 }
 
-#intro{
+#intro {
     text-align: center;
-    color: rgb(65, 17, 17);
-    font-size: medium;
+    color: rgb(110, 66, 38);
+    font-size: 2rem;
     background-color: rgba(219, 174, 115, 0.438);
     margin-bottom: 35px;
     margin-top: 10px;
+    /* font-family: 'Cookie', cursive; */
+    font-family: 'Patrick Hand', cursive;
+    /* font-family: 'Satisfy', cursive; */
+    /* font-family: 'Tangerine', cursive; */
     /* border-radius: 0px 0px 20px 20px; */
+}
+
+#draw-card {
+    font-family: 'Patrick Hand', cursive;
+}
+
+.card-stats {
+    font-family: 'Patrick Hand', cursive;
+    color: rgb(110, 66, 38);
 }
 
 #three-card-spread {
@@ -36,8 +50,9 @@ body {
     text-align: center;
     margin-bottom: 0px;
     padding: 10px;
-    background-color: rgba(202, 161, 104, 0.459);
-    color: rgb(32, 29, 24);;
+    background-color: rgba(187, 142, 78, 0.548);
+    color: rgb(32, 29, 24);
+    ;
     font-weight: bold;
     /* border-radius: 0px 0px 40px 40px; */
     margin-top: 0;
@@ -56,13 +71,13 @@ body {
         padding: 10px;
         background-color: rgba(202, 161, 104, 0.459);
         border-radius: 0px;
-        color: rgb(32, 29, 24);;
+        color: rgb(32, 29, 24);
+        ;
         font-weight: bold;
         /* font-size: 4rem; */
         /* border-radius: 0px 0px 40px 40px; */
         margin-top: 0;
     }
-
     .card {
         border: 3px solid #1b6c918a;
         border-radius: 4px;
@@ -72,7 +87,7 @@ body {
         width: 100px;
         box-shadow: 0px 0px 20px #5d9fbe
     }
-  }
+}
 
 .card {
     border: 3px solid #1b6c918a;
@@ -83,17 +98,17 @@ body {
     box-shadow: 0px 0px 20px #5d9fbe
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-3px);
     transform: rotate(0deg);
     transition: 0.3s ease-in;
 }
 
-.card-rotated{
-    transform:rotate(180deg);
+.card-rotated {
+    transform: rotate(180deg);
 }
 
-#card-info{
+#card-info {
     font-family: 'Tangerine', cursive;
     /* font-family: 'Cookie', cursive; */
     text-align: center;
@@ -102,14 +117,16 @@ body {
     background-color: rgba(163, 71, 71, 0.404);
     font-weight: bold;
 }
-.card-details-sections{
+
+.card-details-sections {
     /* font-family: 'Tangerine', cursive; */
     background-color: rgba(255, 248, 220, 0.616);
     padding: 5px;
     border-radius: 5px;
     font-size: medium;
 }
-.card-details-name{
+
+.card-details-name {
     font-family: 'Tangerine', cursive;
     background-color: rgba(252, 199, 130, 0.664);
     color: rgb(100, 44, 4);
@@ -117,11 +134,11 @@ body {
     border-radius: 5px;
 }
 
-.card-details-description{
+.card-details-description {
     /* text-align: justify; */
 }
 
-.card-details-short-desc{
+.card-details-short-desc {
     color: saddlebrown;
     background-color: rgba(243, 215, 178, 0.664);
 }
@@ -132,17 +149,17 @@ body {
     text-align: center;
 }
 
-span{
+span {
     font-size: medium;
 }
 
-.card-details{
+.card-details {
     margin-top: 10px;
     /* align-items: center; */
     text-align: center;
 }
 
-.card-info{
+.card-info {
     text-align: center;
     font-weight: bold;
 }

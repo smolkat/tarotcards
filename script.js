@@ -9,6 +9,7 @@ var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<
 var intro_message = "<p>The Past-Present-Future spread is one of the most straightforward spreads. As the name suggests, it can offer great insight to help understand how the past influences present circumstance, what’s going on in the present moment…and how the choices you make in the present may unfold in the future.</p>"
 var screen_to_card_ratio = 5
 var min_card_width = 175
+var chance_of_inverted = 0.4
 // spread variables
 var three_spread_count = 1
 // tts
@@ -165,7 +166,9 @@ function random_order() {
     for (let index = 0; index < total_cards; index++) {
         // generated set of cards
         cards[index] = index
-        inverted[index] = Math.floor(Math.random() * 2)
+        // inverted or upright
+        // inverted[index] = Math.floor(Math.random() * 2)
+        inverted[index] = Math.random()<chance_of_inverted?1:0;
     }
     // console.log("Generated set in order", cards)
     // used to keep track of the main deck
