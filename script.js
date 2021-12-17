@@ -6,6 +6,7 @@ var deck = []
 var inverted = []
 var total_cards = associations.length
 var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed</em>", "<em>The current state you are in</em>", "<em>The future holds great opportunities, and dangers</em>"]
+var intro_message = "The \"Past, Present and Future Spread\", is a very simple and effective spread that guides you through the phases of life"
 var screen_to_card_ratio = 5
 // spread variables
 var three_spread_count = 1
@@ -27,6 +28,10 @@ function threeSpread() {
         updateDeckCount("Out of cards!<br/>Reshuffle?")
     }
 
+}
+
+function updateIntroMessage(){
+    document.getElementById("intro").innerHTML = intro_message
 }
 
 function updateDeckCount(optional) {
@@ -189,3 +194,4 @@ function set_card_height(){
 create_deck()
 shuffle_deck()
 set_card_height()
+updateIntroMessage()
