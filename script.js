@@ -11,6 +11,10 @@ var screen_to_card_ratio = 5
 var min_card_width = 175
 // spread variables
 var three_spread_count = 1
+// tts
+var msg
+var voices
+var playing = 0
 function threeSpread() {
     if (deck.length) {
         if (three_spread_count <= 3) {
@@ -31,7 +35,7 @@ function threeSpread() {
 
 }
 
-function updateIntroMessage(){
+function updateIntroMessage() {
     document.getElementById("intro").innerHTML = intro_message
 }
 
@@ -60,7 +64,7 @@ function resetThreeCardSpread() {
         for (let j = 0; j < details_collection[index].childElementCount; j++) {
             details_collection[index].children[j].innerHTML = ""
             updateNameOfElement("card-" + (index + 1), null, default_values[index])
-            updateDescriptionOfElement("card-" + (index + 1), null, default_values[index+3])
+            updateDescriptionOfElement("card-" + (index + 1), null, default_values[index + 3])
         }
     }
 }
@@ -183,15 +187,43 @@ function invertCard(position) {
         inverted[position] = 1
 }
 
-function set_card_height(){
+function set_card_height() {
     card1 = document.getElementById("card-1")
     card2 = document.getElementById("card-2")
     card3 = document.getElementById("card-3")
-    card1.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, min_card_width) )
-    card2.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, min_card_width) )
-    card3.setAttribute("width", Math.min(window.innerWidth/screen_to_card_ratio, min_card_width) )
+    card1.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
+    card2.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
+    card3.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
 }
 
+function speakContent(text = "Text to speach works correctly") {
+    msg.text = text;
+    // toggle play
+    if(playing){
+        playing = 0;
+        window.speechSynthesis.cancel()
+    }
+    else{
+        playing = 1;
+        window.speechSynthesis.speak(msg)
+    }
+}
+
+function init() {
+
+    // tts
+    if ('speechSynthesis' in window) {
+        msg = new SpeechSynthesisUtterance()
+        voices = window.speechSynthesis.getVoices()
+        msg.voice = voices[1]
+        console.log("Voices available: ", voices.length)
+    } else {
+        // Speech Synthesis Not Supported 😣
+        alert("Sorry, your browser doesn't support text to speech!");
+    }
+}
+
+init()
 create_deck()
 shuffle_deck()
 set_card_height()

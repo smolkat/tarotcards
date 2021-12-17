@@ -14,6 +14,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Tangerine:wght@400;700&display=swap"
@@ -29,10 +31,10 @@
     <h1 id="three-card-spread">Past, Present, Future - Three card spread</h1>
 
     <div class="container">
-        <div class="row" >
+        <div class="row">
             <div class="col-md-12">
                 <blockquote style="padding: 15px;" id="intro">
-                    
+
                 </blockquote>
             </div>
         </div>
@@ -49,10 +51,10 @@
                             <img class='card' id="card-1" src="Cards/back.png">
                         </div>
                         <div class="col-xs-4">
-                            <img class='card' id="card-2" src="Cards/back.png" >
+                            <img class='card' id="card-2" src="Cards/back.png">
                         </div>
                         <div class="col-xs-4">
-                            <img class='card' id="card-3" src="Cards/back.png" >
+                            <img class='card' id="card-3" src="Cards/back.png">
                         </div>
                     </div>
                 </div>
@@ -68,10 +70,11 @@
                     <button id="draw-card" class="btn btn-success" type="button"
                         onclick="threeSpread('Past','Present','Future')">Draw a Card</button>
                     <!-- <input type="image" src="images/button.png" onclick="threeSpread()" width="50px" height="50px"/> -->
-                    <div hidden id="dev-console"
+                    <div id="dev-console"
                         style="margin-top: 10px; border: 1px solid brown ; border-radius: 10px; padding: 5px;">
                         <button class="btn btn-primary" type="button" onclick="shuffle_deck()">Shuffle Deck</button>
                         <button class="btn btn-info" type="button" onclick="create_deck()">Create Deck</button>
+                        <button class="btn btn-info" type="button" onclick="speakContent()">Test TTS</button>
                     </div>
                 </div>
 
@@ -80,6 +83,8 @@
         <div class="row" style="background-color: rgba(255, 248, 220, 0.377);">
 
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 2rem;"
+                    onclick="speakContent(document.getElementById('card-1-description').innerText)"></i>
                 <div class="card-details-sections card-details-name" id="card-1-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-1-short-desc"></div>
                 <div class="card-details-sections card-details-description" id="card-1-description"></div>
@@ -87,6 +92,8 @@
                 <div class="card-details-sections" id="card-1-keywords-inverted"></div>
             </div>
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 2rem;"
+                    onclick="speakContent(document.getElementById('card-2-description').innerText)"></i>
                 <div class="card-details-sections card-details-name" id="card-2-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-2-short-desc"></div>
                 <div class="card-details-sections" id="card-2-description"></div>
@@ -94,6 +101,8 @@
                 <div class="card-details-sections" id="card-2-keywords-inverted"></div>
             </div>
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 2rem;"
+                    onclick="speakContent(document.getElementById('card-3-description').innerText)"></i>
                 <div class="card-details-sections card-details-name" id="card-3-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-3-short-desc"></div>
                 <div class="card-details-sections" id="card-3-description"></div>

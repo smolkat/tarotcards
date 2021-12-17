@@ -6,7 +6,9 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
-
+.speaker-icon:hover{
+    color: cornflowerblue;
+}
 #intro{
     text-align: center;
     color: rgb(65, 17, 17);
