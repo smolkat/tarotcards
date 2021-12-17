@@ -6,7 +6,7 @@ var deck = []
 var inverted = []
 var total_cards = associations.length
 var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed</em>", "<em>The current state you are in</em>", "<em>The future holds great opportunities, and dangers</em>"]
-var intro_message = "The \"Past, Present and Future Spread\", is a very simple and effective spread that guides you through the phases of life"
+var intro_message = "<p>The Past-Present-Future spread is one of the most straightforward spreads. As the name suggests, it can offer great insight to help understand how the past influences present circumstance, what’s going on in the present moment…and how the choices you make in the present may unfold in the future.</p>"
 var screen_to_card_ratio = 5
 var min_card_width = 175
 // spread variables
@@ -15,7 +15,7 @@ var three_spread_count = 1
 var msg
 var voices
 var playing = 0
-function threeSpread() {
+function threeSpread(element) {
     if (deck.length) {
         if (three_spread_count <= 3) {
             if (three_spread_count == 3)
@@ -196,19 +196,20 @@ function set_card_height() {
     card3.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
 }
 
-function speakContent(text = "Text to speach works correctly") {
+function speakContent(text = "Text to speach works correctly", trim) {
+    text = text.slice(trim, text.length)
     msg.text = text;
     // toggle play
-    if(playing){
+    if (playing) {
         playing = 0;
         window.speechSynthesis.cancel()
     }
-    else{
+    else {
         playing = 1;
         window.speechSynthesis.speak(msg)
-        msg.onend = function(event) {
+        msg.onend = function (event) {
             playing = 0
-            console.log('Finished in ' + event.elapsedTime/1000 + ' seconds.');
+            console.log('Finished in ' + event.elapsedTime / 1000 + ' seconds.');
         };
     }
 }
@@ -219,7 +220,9 @@ function init() {
     if ('speechSynthesis' in window) {
         msg = new SpeechSynthesisUtterance()
         voices = window.speechSynthesis.getVoices()
-        msg.voice = voices[1]
+        let voice_index = 0
+        voices.forEach((element, index) => { if (element.name = "Microsoft Zira Desktop - English (United States)") voice_index = index });
+        msg.voice = voices[voice_index]
         console.log("Voices available: ", voices.length)
     } else {
         // Speech Synthesis Not Supported 😣

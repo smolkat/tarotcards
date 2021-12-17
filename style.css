@@ -9,6 +9,17 @@ body {
 .speaker-icon:hover{
     color: cornflowerblue;
 }
+
+.speaker-disabled{
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .speaker-icon{
+        font-size: 5rem;
+    }
+}
+
 #intro{
     text-align: center;
     color: rgb(65, 17, 17);
