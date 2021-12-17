@@ -206,6 +206,10 @@ function speakContent(text = "Text to speach works correctly") {
     else{
         playing = 1;
         window.speechSynthesis.speak(msg)
+        msg.onend = function(event) {
+            playing = 0
+            console.log('Finished in ' + event.elapsedTime/1000 + ' seconds.');
+        };
     }
 }
 
