@@ -24,21 +24,30 @@ font-family: 'Tangerine', cursive; -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="init()">
     <h1 id="three-card-spread">Past, Present, Future - Three card spread</h1>
-
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <blockquote style="padding: 15px;" id="intro">
-
+                <blockquote class="intro">
+                    Tarot card reading is a form of cartomancy whereby practitioners use tarot cards purportedly to gain insight into the past, present or future. They formulate a question, then draw cards interpret them for this end.
                 </blockquote>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <blockquote style="padding: 15px;" id="intro"></blockquote>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 card-info">
                 <h3 class="card-stats">Total Cards</h3>
                 <h4 class="card-stats" id="cards-total">Total Cards</h4>
+                <h3 class="card-stats">Major Arcana</h3>
+                <h4 class="card-stats">22</h4>
+                <h3 class="card-stats">Minor Arcana</h3>
+                <h4 class="card-stats">56</h4>
+                <!-- <button style="margin-bottom: 10px;" class="btn btn-primary" type="button" onclick="shuffle_deck()">Shuffle Deck</button> -->
             </div>
             <div class="col-md-6">
                 <div style="text-align: center;">
@@ -59,6 +68,11 @@ font-family: 'Tangerine', cursive; -->
             <div class="col-md-3 card-info">
                 <h3 class="card-stats">Cards in Deck</h3>
                 <h4 class="card-stats" id="deck-count"></h4>
+                <h3 class="card-stats">Major Arcana</h3>
+                <h4 class="card-stats" id="count-major"></h4>
+                <h3 class="card-stats">Minor Arcana</h3>
+                <h4 class="card-stats" id="count-minor"></h4>
+                <!-- <button class="btn btn-info" type="button" onclick="create_deck()">Create Deck</button> -->
             </div>
         </div>
         <div class="row">
@@ -79,7 +93,7 @@ font-family: 'Tangerine', cursive; -->
         <div class="row" style="background-color: rgba(255, 248, 220, 0.377);">
 
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
-                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById('card-1-description').innerText, 11)"></i>
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById( 'card-1-description').innerText, 11)"></i>
                 <div class="card-details-sections card-details-name" id="card-1-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-1-short-desc"></div>
                 <div class="card-details-sections card-details-description" id="card-1-description"></div>
@@ -87,7 +101,7 @@ font-family: 'Tangerine', cursive; -->
                 <div class="card-details-sections" id="card-1-keywords-inverted"></div>
             </div>
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
-                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById('card-2-description').innerText, 11)"></i>
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById( 'card-2-description').innerText, 11)"></i>
                 <div class="card-details-sections card-details-name" id="card-2-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-2-short-desc"></div>
                 <div class="card-details-sections" id="card-2-description"></div>
@@ -95,7 +109,7 @@ font-family: 'Tangerine', cursive; -->
                 <div class="card-details-sections" id="card-2-keywords-inverted"></div>
             </div>
             <div class="col-md-4 card-details" style="padding-left: 10px; padding-right: 10px;">
-                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById('card-3-description').innerText, 11)"></i>
+                <i class="bi bi-volume-up speaker-icon" style="font-size: 3rem;" onclick="speakContent(document.getElementById( 'card-3-description').innerText, 11)"></i>
                 <div class="card-details-sections card-details-name" id="card-3-name"></div>
                 <div class="card-details-sections card-details-short-desc" id="card-3-short-desc"></div>
                 <div class="card-details-sections" id="card-3-description"></div>

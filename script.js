@@ -5,10 +5,10 @@ var transparent_extension = ".png"
 var deck = []
 var inverted = []
 var total_cards = associations.length
-var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed</em>", "<em>The current state you are in</em>", "<em>The future holds great opportunities, and dangers</em>"]
+var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed. This card represents your pevious experiences</em>", "<em>This card represents the current state you are in, and what you might be thinking about right now</em>", "<em>The future holds great opportunities, and dangers. This card gives you an insight into what may lie ahead</em>"]
 var intro_message = "<p>The Past-Present-Future spread is one of the most straightforward spreads. As the name suggests, it can offer great insight to help understand how the past influences present circumstance, what’s going on in the present moment…and how the choices you make in the present may unfold in the future.</p>"
 var screen_to_card_ratio = 5
-var min_card_width = 175
+var min_card_width = 160
 var chance_of_inverted = 0.4
 // spread variables
 var three_spread_count = 1
@@ -16,6 +16,7 @@ var three_spread_count = 1
 var msg
 var voices
 var playing = 0
+
 function threeSpread(element) {
     if (deck.length) {
         if (three_spread_count <= 3) {
@@ -23,14 +24,12 @@ function threeSpread(element) {
                 document.getElementById("draw-card").innerHTML = "New Spread"
             drawForElement(three_spread_count++)
             updateDeckCount()
-        }
-        else {
+        } else {
             three_spread_count = 1
             document.getElementById("draw-card").innerHTML = "Draw a Card"
             resetThreeCardSpread()
         }
-    }
-    else {
+    } else {
         updateDeckCount("Out of cards!<br/>Reshuffle?")
     }
 
@@ -46,6 +45,16 @@ function updateDeckCount(optional) {
         deck_count.innerHTML = optional
         return
     }
+    major_count = document.getElementById("count-major")
+    minor_count = document.getElementById("count-minor")
+    maj_count = 0;
+    min_count = 0;
+    deck.forEach(element => {
+        if (element < 22) maj_count++;
+        else min_count++;
+    })
+    major_count.innerHTML = maj_count
+    minor_count.innerHTML = min_count
     deck_count.innerHTML = deck.length
 }
 
@@ -80,8 +89,7 @@ function drawForElement(id) {
     if (inverted[card]) {
         cardelement.classList.add("card-rotated")
         updateInvertedKeywordsOfElement(card_id, card)
-    }
-    else {
+    } else {
         cardelement.classList.remove("card-rotated")
         updateKeywordsOfElement(card_id, card)
     }
@@ -168,7 +176,7 @@ function random_order() {
         cards[index] = index
         // inverted or upright
         // inverted[index] = Math.floor(Math.random() * 2)
-        inverted[index] = Math.random()<chance_of_inverted?1:0;
+        inverted[index] = Math.random() < chance_of_inverted ? 1 : 0;
     }
     // console.log("Generated set in order", cards)
     // used to keep track of the main deck
@@ -191,23 +199,26 @@ function invertCard(position) {
 }
 
 function set_card_height() {
-    card1 = document.getElementById("card-1")
-    card2 = document.getElementById("card-2")
-    card3 = document.getElementById("card-3")
-    card1.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
-    card2.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
-    card3.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
+    // card1 = document.getElementById("card-1")
+    // card2 = document.getElementById("card-2")
+    // card3 = document.getElementById("card-3")
+    // card1.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
+    // card2.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
+    // card3.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
+    cardCollection = document.getElementsByClassName("card")
+    cardArray = Array.prototype.slice.call(cardCollection)
+    cardArray.forEach(element => { element.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width)) })
 }
 
 function speakContent(text = "Text to speach works correctly", trim) {
     text = text.slice(trim, text.length)
+    // text.replaceAll(/Pentacles/g, "pentacals");
     msg.text = text;
     // toggle play
     if (playing) {
         playing = 0;
         window.speechSynthesis.cancel()
-    }
-    else {
+    } else {
         playing = 1;
         window.speechSynthesis.speak(msg)
         msg.onend = function (event) {
@@ -231,10 +242,15 @@ function init() {
         // Speech Synthesis Not Supported 😣
         alert("Sorry, your browser doesn't support text to speech!");
     }
+
+    // set card dimensions based on screen width
+    set_card_height()
+
+    // other
+    create_deck()
+    shuffle_deck()
+    updateIntroMessage()
+    updateDeckCount()
 }
 
-init()
-create_deck()
-shuffle_deck()
-set_card_height()
-updateIntroMessage()
+    // init()
