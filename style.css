@@ -58,6 +58,17 @@ body {
     color: rgb(110, 66, 38);
 }
 
+.card-stats span{
+    font-size: large;
+    /* font-weight: bold; */
+}
+
+/* @media only screen and (max-width: 600px) {
+    .card-stats {
+        visibility: hidden;
+    }
+} */
+
 #three-card-spread {
     font-family: 'Tangerine', cursive;
     /* font-family: 'Cookie', cursive; */

@@ -251,6 +251,13 @@ function init() {
     shuffle_deck()
     updateIntroMessage()
     updateDeckCount()
+
+    // remove stats on mobile for now
+    if(window.innerWidth < 600){
+        col = document.getElementsByClassName("card-info")
+        arr = Array.prototype.slice.call(col)
+        arr.forEach(e=>e.remove())
+    }
 }
 
     // init()
