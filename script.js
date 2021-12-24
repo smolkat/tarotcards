@@ -5,7 +5,7 @@ var transparent_extension = ".png"
 var deck = []
 var inverted = []
 var total_cards = associations.length
-var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed. This card represents your pevious experiences</em>", "<em>This card represents the current state you are in, and what you might be thinking about right now</em>", "<em>The future holds great opportunities, and dangers. This card gives you an insight into what may lie ahead</em>"]
+var default_values = ["<h1>Past</h1>", "<h1>Present</h1>", "<h1>Future</h1>", "<em>The past can only be recollected, not changed. This card represents your previous experiences</em>", "<em>This card represents the current state you are in, and what you might be thinking about right now</em>", "<em>The future holds great opportunities, and dangers. This card gives you an insight into what may lie ahead</em>"]
 var intro_message = "<p>The Past-Present-Future spread is one of the most straightforward spreads. As the name suggests, it can offer great insight to help understand how the past influences present circumstance, what’s going on in the present moment…and how the choices you make in the present may unfold in the future.</p>"
 var screen_to_card_ratio = 5
 var min_card_width = 160
@@ -109,19 +109,16 @@ function updateShortDesc(id, card) {
 }
 
 function updateKeywordsOfElement(id, card) {
-    //console.log(id)
     keywords = document.getElementById(id + "-keywords")
     keywords.innerHTML = "<h3>Keywords</h3>" + associations[card].keywords
 }
 
 function updateInvertedKeywordsOfElement(id, card) {
-    //console.log(id)
     keywordsi = document.getElementById(id + "-keywords-inverted")
     keywordsi.innerHTML = "<h3>Inverted Keywords</h3>" + associations[card].reversed_keywords
 }
 
 function updateDescriptionOfElement(id, card, optional_desc) {
-    //console.log(id + "-description")
     description = document.getElementById(id + "-description")
     if (optional_desc != null) {
         description.innerHTML = optional_desc
@@ -131,7 +128,6 @@ function updateDescriptionOfElement(id, card, optional_desc) {
 }
 
 function updateNameOfElement(id, card, optional_name) {
-    //console.log(id)
     card_name = document.getElementById(id + "-name")
     if (optional_name != null) {
         card_name.innerHTML = "<h1>" + optional_name + "</h1>"
@@ -142,7 +138,6 @@ function updateNameOfElement(id, card, optional_name) {
 
 function randomcard() {
     let random_card = Math.floor(Math.random() * total_cards);
-    // console.log(random)
     return random_card
 }
 
@@ -175,10 +170,8 @@ function random_order() {
         // generated set of cards
         cards[index] = index
         // inverted or upright
-        // inverted[index] = Math.floor(Math.random() * 2)
         inverted[index] = Math.random() < chance_of_inverted ? 1 : 0;
     }
-    // console.log("Generated set in order", cards)
     // used to keep track of the main deck
     index = 0
     while (cards.length > 0) {
@@ -199,12 +192,6 @@ function invertCard(position) {
 }
 
 function set_card_height() {
-    // card1 = document.getElementById("card-1")
-    // card2 = document.getElementById("card-2")
-    // card3 = document.getElementById("card-3")
-    // card1.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
-    // card2.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
-    // card3.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width))
     cardCollection = document.getElementsByClassName("card")
     cardArray = Array.prototype.slice.call(cardCollection)
     cardArray.forEach(element => { element.setAttribute("width", Math.min(window.innerWidth / screen_to_card_ratio, min_card_width)) })
@@ -212,7 +199,6 @@ function set_card_height() {
 
 function speakContent(text = "Text to speach works correctly", trim) {
     text = text.slice(trim, text.length)
-    // text.replaceAll(/Pentacles/g, "pentacals");
     msg.text = text;
     // toggle play
     if (playing) {
@@ -259,5 +245,3 @@ function init() {
         arr.forEach(e=>e.remove())
     }
 }
-
-    // init()
